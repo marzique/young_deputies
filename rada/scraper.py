@@ -5,11 +5,12 @@ from bs4 import BeautifulSoup
 import platform
 import sys
 import os
-from pathlib import Path
+
 
 def choose_driver():
 	script_dir = os.path.dirname(__file__) 
 	system = platform.system()
+
 	if system.lower() == 'linux':
 		return os.path.join(script_dir, 'data', 'chromedriver_linux')
 	elif system.lower() == 'darwin':
@@ -17,22 +18,17 @@ def choose_driver():
 	elif system.lower() == 'windows':
 		return os.path.join(script_dir, 'data', 'chromedriver_win.exe')
 	else:
-		print('Cant find chromedriver')
+		print('Chromedriver not found!.\n Aborting...')
 		sys.exit(0)
 
 
 def deputy_url_by_id(id_):
-	""""""
-	deputy_url = 'https://itd.rada.gov.ua/mps/info/page/' # + id
-
+	deputy_url = 'https://itd.rada.gov.ua/mps/info/page/'
 	return deputy_url + id_
 
 
 def laws_url_by_id(id_):
-	""""""
-
-	laws_url = f'http://w1.c1.rada.gov.ua/pls/pt2/reports.dep2?PERSON={id_}&SKL=10'
-	return laws_url
+	return f'http://w1.c1.rada.gov.ua/pls/pt2/reports.dep2?PERSON={id_}&SKL=10'
 
 
 def parse_js_page(url, sleep_time=5):
@@ -59,7 +55,7 @@ def laws_by_deputy(id_):
 	return total_laws
 
 def name_by_id(id_):
-	""""""
+	"""Return name of the deputy from rada webpage by id"""
 
 	deputy_html = parse_js_page(laws_url_by_id(id_))
 	soup = BeautifulSoup(deputy_html, 'html.parser')
@@ -67,12 +63,14 @@ def name_by_id(id_):
 
 	return fullname[0].text.strip()
 
+def set_browser():
+	"""Return browser instance to work with. No GUI for CLI usage."""
 
-path_to_driver = choose_driver()
+	options = Options()
+	options.add_argument('--headless') # disable chrome GUI for CLI
+	options.add_argument('--no-sandbox')
+	options.add_argument('--disable-dev-shm-usage') 
 
-options = Options()
-options.add_argument('--headless') # disable chrome GUI for CLI
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-dev-shm-usage') 
+	return webdriver.Chrome(choose_driver(), chrome_options=options)
 
-browser=webdriver.Chrome(path_to_driver, chrome_options=options)
+browser = set_browser()
