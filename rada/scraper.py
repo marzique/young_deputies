@@ -5,9 +5,10 @@ from bs4 import BeautifulSoup
 import platform
 import sys
 import os
+from pathlib import Path
 
 def choose_driver():
-	script_dir = os.path.dirname(__file__)
+	script_dir = os.path.dirname(__file__) 
 	system = platform.system()
 	if system.lower() == 'linux':
 		return os.path.join(script_dir, 'data', 'chromedriver_linux')

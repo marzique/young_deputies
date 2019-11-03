@@ -1,4 +1,4 @@
-from rada_helpers import laws_by_deputy, name_by_id
+from rada.scraper import laws_by_deputy, name_by_id
 
 petro_id = 2273 # HETMAN
 # vakarchuk_id = 11120 
