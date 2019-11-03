@@ -64,3 +64,14 @@ def laws_by_deputy(id_):
 	total_laws = len(table.find_all('tr')) - 1
 
 	return total_laws
+
+def name_by_id(id_):
+	""""""
+
+	deputy_html = parse_js_page(laws_url_by_id(id_))
+	soup = BeautifulSoup(deputy_html, 'html.parser')
+	fullname = soup.select('.heading h3')
+
+	return fullname[0].text
+
+
