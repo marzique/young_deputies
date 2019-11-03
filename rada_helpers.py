@@ -6,27 +6,19 @@ import platform
 import sys
 import os
 
-path_to_driver = ''
-script_dir = os.path.dirname(__file__)
+def choose_driver():
+	script_dir = os.path.dirname(__file__)
+	system = platform.system()
+	if system.lower() == 'linux':
+		return os.path.join(script_dir, 'data', 'chromedriver_linux')
+	elif system.lower() == 'darwin':
+		return os.path.join(script_dir, 'data', 'chromedriver_mac')
+	elif system.lower() == 'windows':
+		return os.path.join(script_dir, 'data', 'chromedriver_win.exe')
+	else:
+		print('Cant find chromedriver')
+		sys.exit(0)
 
-system = platform.system()
-if system.lower() == 'linux':
-	path_to_driver = os.path.join(script_dir, 'data', 'chromedriver_linux')
-elif system.lower() == 'darwin':
-	path_to_driver = os.path.join(script_dir, 'data', 'chromedriver_mac')
-elif system.lower() == 'windows':
-	path_to_driver = os.path.join(script_dir, 'data', 'chromedriver_win.exe')
-else:
-	print('Cant find chromedriver')
-	sys.exit(0)
-
-
-options = Options()
-options.add_argument('--headless') # disable chrome GUI for CLI
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-dev-shm-usage') 
-
-browser=webdriver.Chrome(path_to_driver, chrome_options=options)
 
 def deputy_url_by_id(id_):
 	""""""
@@ -72,6 +64,14 @@ def name_by_id(id_):
 	soup = BeautifulSoup(deputy_html, 'html.parser')
 	fullname = soup.select('.heading h3')
 
-	return fullname[0].text
+	return fullname[0].text.strip()
 
 
+path_to_driver = choose_driver()
+
+options = Options()
+options.add_argument('--headless') # disable chrome GUI for CLI
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage') 
+
+browser=webdriver.Chrome(path_to_driver, chrome_options=options)
