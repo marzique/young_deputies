@@ -6,32 +6,54 @@ import os
 # Create your models here.
 
 class Deputy(models.Model):
-	rada_id = models.IntegerField()
-	name = models.CharField(max_length=200) # "Порошенко Петро "
-	laws = models.IntegerField()
-	photo = models.CharField(max_length=200)
-	monitoring = models.IntegerField()
-	attendance = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)]) 
-	last_month_position = models.IntegerField()
-	position_current = models.IntegerField()
-	rating_upfoundation = models.IntegerField()
-	txt_for_page = models.TextField(max_length=2500)
-	# party
+    rada_id = models.IntegerField()
+    name = models.CharField(max_length=200) # "Порошенко Петро "
+    laws = models.IntegerField()
+    photo = models.CharField(max_length=200)
+    monitoring = models.IntegerField()
+    attendance = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)]) 
+    last_month_position = models.IntegerField()
+    position_current = models.IntegerField()
+    rating_upfoundation = models.IntegerField()
+    txt_for_page = models.TextField(max_length=2500)
 
-	def __str__(self):
-		return self.name
-	
-	def position_change(self):
-		return self.last_month_position - self.position_current
+    SLUGA_NARODU = 'SN'
+    OPZZH = 'OP'
+    BATKIVSHYNA = 'BT'
+    E_SOLIDARNIST = 'ES'
+    HOLOS = 'HL'
+    ZA_MAIBUTNIE = 'ZM'
+    BEZ_PARTII = 'BP'
+    PARTIES = [
+        (SLUGA_NARODU, 'Слуга Народу'),
+        (OPZZH, 'ОПОЗИЦІЙНА ПЛАТФОРМА - ЗА ЖИТТЯ'),
+        (BATKIVSHYNA, 'Батьківщина'),
+        (E_SOLIDARNIST, 'Європейська Солідарність'),
+        (HOLOS, 'Голос'),
+        (ZA_MAIBUTNIE, 'За майбутнє'),
+        (BEZ_PARTII, 'Позафракційні'),
+    ]
 
-	def position_change_snippet(self):
-		difference =  self.last_month_position - self.position_current
-		if difference > 0:
-			return f'<span class="difference positive">+{difference}</span>'
-		elif difference < 0:
-			return f'<span class="difference negative">{difference}</span>'
-		else:
-			return ''
-	
+    party = models.CharField(
+        max_length=200,
+        choices=PARTIES,
+        default=BEZ_PARTII,
+    )
 
-	
+    def __str__(self):
+        return self.name
+    
+    def position_change(self):
+        return self.last_month_position - self.position_current
+
+    def position_change_snippet(self):
+        difference =  self.last_month_position - self.position_current
+        if difference > 0:
+            return f'<span class="difference positive">+{difference}</span>'
+        elif difference < 0:
+            return f'<span class="difference negative">{difference}</span>'
+        else:
+            return ''
+    
+
+    

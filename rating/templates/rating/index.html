@@ -5,11 +5,11 @@
 
     {% for deputy in deputies %}
     <div class="deputy {% if deputy.position_current <= 3 %}top3{% endif %}">
-        <img src="{% get_static_prefix %}rating/img/deputies/{{ deputy.photo }}" alt="">
+        <img class="avatar" src="{% get_static_prefix %}rating/img/deputies/{{ deputy.photo }}" alt="">
         <div class="info">
             <div class="col">
                 <h2>{{deputy.name}}</h2>
-                <p>Партия: картинка_партии</p>
+                <p class="party">Партия:  <img class="party_logo" src="{% get_static_prefix %}rating/img/parties/{{ deputy.party }}.jpg" alt="{{deputy.get_party_display}}"></p>
                 <p>Место: <span class="current">{{deputy.position_current}}</span></p>
                 <p>Прошлый месяц: <span class="last_month">{{deputy.last_month_position}}</span> {{deputy.position_change_snippet|safe}}</p>
             </div>

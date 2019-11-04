@@ -9,14 +9,14 @@
     margin: 50px 1%;
 }
 
-.deputy > img{
+.deputy .avatar{
     object-fit: cover;
     width: 10%;
     height: 100%;
     min-width: 100px;
 }
 
-.deputy.top3 > img{
+.deputy.top3 .avatar{
     width: 15%;
 }
 
@@ -47,6 +47,17 @@
 .deputy.top3:nth-of-type(3) .current{
     color: #cd7f32;
     font-size: 3em;
+}
+
+.party_logo{
+    width: 100px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.party{
+    display: flex;
+    align-items: center;
 }
 
 .positive{
