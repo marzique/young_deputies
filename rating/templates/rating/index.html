@@ -6,15 +6,17 @@
     <meta charset="UTF-8">
 
     <!-- WP theme styles -->
-    <link rel="stylesheet" type="text/css" href="{% static 'rating/newspaper.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'rating/css/newspaper.css' %}">
 
     <!-- digisol custom styles -->
-    <link rel="stylesheet" type="text/css" href="{% static 'rating/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'rating/css/main.css' %}">
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700&display=swap&subset=cyrillic" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap&subset=cyrillic" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
     <title>Young Deputies Rating</title>
 </head>
@@ -43,30 +45,15 @@
                         <div class="td_data_currency">
 
                             <!-- NBU USD -->
-                            1 $ = 24.74₴
+                            1 $ = {{ usd_rate }}₴
                         </div>
                         <!-- OIL BRENT -->
-                        <script type="text/javascript" src="https://www.oil-price.net/widgets/brent_text/gen.php?lang=en">
-                        </script>
-                        <table summary="Crude oil price (c) http://oil-price.net" cellspacing="5" cellpadding="5" border="0" style="font-family: Lucida Sans Unicode, Lucida Grande, Sans-Serif; font-size: 12px ; margin: 5px;  border-collapse: collapse; text-align: left; border-color: #FFFFFF; border-width: 0px 0px 0px 0px;">
-                            <tbody>
-                                <tr valign="bottom">
-                                    <td style="font-weight: bold; white-space: nowrap; padding-right:10px;">
-                                        <a href="http://oil-price.net/dashboard.php?lang=en#BRENT_TEXT" style="text-decoration:none">Brent Crude Oil</a>
-                                    </td>
-                                    <td style="white-space: nowrap; padding-right:10px;">
-                                        60.21
-                                    </td>
-                                    <td style="white-space: nowrap;">
-                                        <font color="red">-0.03%</font>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+				        <script type="text/javascript" src="https://www.oil-price.net/widgets/brent_text/gen.php?lang=en"> </script>
+				        <noscript> 
+				            To get the <a href="http://www.oil-price.net/dashboard.php?lang=en#BRENT_TEXT">oil price</a>, please enable Javascript.
+				        </noscript> 
+                        <!-- /OIL BRENT -->
 
-                        <noscript>
-                            To get the <a href="http://www.oil-price.net/dashboard.php?lang=en#BRENT_TEXT">oil price</a>, please enable Javascript.
-                        </noscript>
                         <div class="menu-top-container">
                             <ul id="menu-top-menu" class="top-header-menu sf-js-enabled">
                                 <li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-first td-menu-item td-normal-menu menu-item-144"><a href="https://uapolicy.org/index.php/o-nas/">О нас</a></li>
@@ -132,7 +119,6 @@
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-1653 menu-item-first td-menu-item td-normal-menu menu-item-1749"><a href="https://uapolicy.org/index.php/category/news/">Статьи</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page td-menu-item td-normal-menu menu-item-260"><a href="https://uapolicy.org/index.php/projects/">Проекты</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page td-menu-item td-normal-menu menu-item-8803"><a href="https://uapolicy.org/index.php/references/">Справочники</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page td-menu-item td-normal-menu menu-item-1995"><a href="https://uapolicy.org/index.php/sobytiya/">События</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1653 current_page_item menu-item-first td-menu-item td-normal-menu menu-item-1749"><a href="https://uapolicy.org/index.php/category/news/">Рейтинг депутатов</a></li>
                             </ul>
                         </div>
