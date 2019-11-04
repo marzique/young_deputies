@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	
+	<link rel="icon" type="image/png" href="https://uapolicy.org/wp-content/uploads/2019/02/favicon_new.png">
+	
+    <!-- WP theme styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'rating/css/newspaper.css' %}">
+
+    <!-- digisol custom styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'rating/css/main.css' %}">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700&display=swap&subset=cyrillic" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap&subset=cyrillic" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+
+    <title>Young Deputies Rating</title>
+</head>
+
+<body>
+	<!-- HEADER -->
+    <div class="td-header-wrap tdm-header tdm-header-style-1 ">
+        <div class="td-header-top-menu-full td-container-wrap ">
+            <div class="td-container td-header-row td-header-top-menu">
+
+                <div class="top-bar-style-1">
+
+                    <div class="td-header-sp-top-menu">
+                        <!-- td weather source: cache -->
+                        <div class="td-weather-top-widget" id="td_top_weather_uid">
+                            <i class="td-icons broken-clouds-d"></i>
+                            <div class="td-weather-now" data-block-uid="td_top_weather_uid">
+                                <span class="td-big-degrees">13.2</span>
+                                <span class="td-weather-unit">C</span>
+                            </div>
+                            <div class="td-weather-header">
+                                <div class="td-weather-city">Kiev, UA </div>
+                            </div>
+                        </div>
+                        <div class="td_data_time">04/11/2019</div>
+                        <div class="td_data_currency">
+
+                            <!-- NBU USD -->
+                            1 $ = {{ usd_rate }}₴
+                        </div>
+                        <!-- OIL BRENT -->
+				        <script type="text/javascript" src="https://www.oil-price.net/widgets/brent_text/gen.php?lang=en"> </script>
+				        <noscript> 
+				            To get the <a href="http://www.oil-price.net/dashboard.php?lang=en#BRENT_TEXT">oil price</a>, please enable Javascript.
+				        </noscript> 
+                        <!-- /OIL BRENT -->
+
+                        <div class="menu-top-container">
+                            <ul id="menu-top-menu" class="top-header-menu sf-js-enabled">
+                                <li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-first td-menu-item td-normal-menu menu-item-144"><a href="https://uapolicy.org/index.php/o-nas/">О нас</a></li>
+                                <li id="menu-item-411" class="menu-item menu-item-type-post_type menu-item-object-page td-menu-item td-normal-menu menu-item-411"><a href="https://uapolicy.org/index.php/contacts/">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="td-header-sp-top-widget">
+
+                        <span class="td-social-icon-wrap">
+            <a target="_blank" href="https://www.facebook.com/uapolicy/" title="Facebook">
+                <i class="td-icon-font td-icon-facebook"></i>
+            </a>
+        </span>
+                        <span class="td-social-icon-wrap">
+            <a target="_blank" href="https://twitter.com/uapolicyfund" title="Twitter">
+                <i class="td-icon-font td-icon-twitter"></i>
+            </a>
+        </span> </div>
+                </div>
+
+                <!-- LOGIN MODAL -->
+            </div>
+        </div>
+
+        <div class="td-header-menu-wrap-full td-container-wrap " style="height: 80px;">
+            <div class="td-header-menu-wrap td-header-gradient td-header-menu-no-search">
+                <div class="td-container td-header-row td-header-main-menu">
+                    <div class="tdm-menu-btns-socials">
+                        <div class="header-search-wrap">
+                            <div class="td-search-btns-wrap">
+                                <a id="td-header-search-button" href="https://uapolicy.org/?s=" role="button" class="dropdown-toggle " data-toggle="dropdown"><i class="td-icon-search"></i></a>
+                                <a id="td-header-search-button-mob" href="https://uapolicy.org/?s=" role="button" class="dropdown-toggle " data-toggle="dropdown"><i class="td-icon-search"></i></a>
+                            </div>
+
+                            <div class="td-drop-down-search" aria-labelledby="td-header-search-button">
+                                <form method="get" class="td-search-form" action="https://uapolicy.org/">
+                                    <div role="search" class="td-head-form-search-wrap">
+                                        <input id="td-header-search" type="text" value="" name="s" autocomplete="off">
+                                        <input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="Поиск">
+                                    </div>
+                                </form>
+                                <div id="td-aj-search"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="td-header-menu" role="navigation">
+                        <div id="td-top-mobile-toggle"><a href="#"><i class="td-icon-font td-icon-mobile"></i></a></div>
+                        <div class="td-main-menu-logo td-logo-in-menu">
+                            <a class="td-mobile-logo td-sticky-disable" href="https://uapolicy.org/">
+                                <img class="td-retina-data" data-retina="https://uapolicy.org/wp-content/uploads/2019/02/pol_bot-2x.png" src="https://uapolicy.org/wp-content/uploads/2019/02/pol_bot.png" alt="">
+                            </a>
+                            <h1 class="td-logo">		<a class="td-header-logo td-sticky-disable" href="https://uapolicy.org/">
+			<img class="td-retina-data" data-retina="https://uapolicy.org/wp-content/uploads/2019/02/uapol_new-2x-1024x339.png" src="https://uapolicy.org/wp-content/uploads/2019/02/ua_new.png" alt="">
+			<span class="td-visual-hidden">UP Foundation</span>
+		</a>
+	</h1> </div>
+                        <div class="menu-td-demo-header-menu_fix-container">
+                            <ul id="menu-td-demo-header-menu_fix-1" class="sf-menu sf-js-enabled">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-1653 menu-item-first td-menu-item td-normal-menu menu-item-1749"><a href="https://uapolicy.org/">Главная</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-1653 menu-item-first td-menu-item td-normal-menu menu-item-1749"><a href="https://uapolicy.org/index.php/category/news/">Статьи</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page td-menu-item td-normal-menu menu-item-260"><a href="https://uapolicy.org/index.php/projects/">Проекты</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page td-menu-item td-normal-menu menu-item-8803"><a href="https://uapolicy.org/index.php/references/">Справочники</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1653 current_page_item menu-item-first td-menu-item td-normal-menu menu-item-1749"><a href="https://uapolicy.org/index.php/category/news/">Рейтинг депутатов</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /HEADER -->
+
+    <section class="main_rating td-main-content-wrap td-main-page-wrap td-container-wrap">
+    	<div class="tdc-row">
+    		{% block content %}{% endblock content %}
+    	</div>
+    </section>
+
+    <!-- FOOTER -->
+	<div class="td-footer-wrapper td-container-wrap td-footer-template-14 ">
+	    <div class="td-container td-footer-bottom-full">
+	        <div class="td-pb-row">
+	            <div class="td-pb-span3">
+	                <aside class="footer-logo-wrap">
+	                    <a href="https://uapolicy.org/"><img src="https://uapolicy.org/wp-content/uploads/2019/02/pol_bot.png" alt="" title=""></a>
+	                </aside>
+	            </div>
+	            <div class="td-pb-span5">
+	                <aside class="footer-text-wrap">
+	                    <div class="block-title"><span>О НАС</span></div>Фонд «Украинская политика» - это независимая общественная организация, объединившая специалистов из разных сфер гуманитарных знаний вокруг идеи изучения политических процессов в Украине, распространение знаний об Украине и ее общественно-политической жизни в мире, а так же рецепция в Украине европейского опыта развития общества.
+	                    <div class="footer-email-wrap">Свяжитесь с нами: <a href="mailto:uapolicyfund@gmail.com">uapolicyfund@gmail.com</a></div>
+	                </aside>
+	            </div>
+	            <div class="td-pb-span4">
+	                <aside class="footer-social-wrap td-social-style-2">
+	                    <div class="block-title"><span>МЫ В СОЦСЕТЯХ</span></div>
+	                    <span class="td-social-icon-wrap">
+	            <a target="_blank" href="https://www.facebook.com/uapolicy/" title="Facebook">
+	                <i class="td-icon-font td-icon-facebook"></i>
+	            </a>
+	        </span>
+	                    <span class="td-social-icon-wrap">
+	            <a target="_blank" href="https://twitter.com/uapolicyfund" title="Twitter">
+	                <i class="td-icon-font td-icon-twitter"></i>
+	            </a>
+	        </span></aside>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<!-- bottom bar -->
+	<div class="td-sub-footer-container td-container-wrap ">
+	    <div class="td-container">
+	        <div class="td-pb-row">
+	            <div class="td-pb-span td-sub-footer-menu">
+	                <div class="menu-footer_about_us_menu-container">
+	                    <ul id="menu-footer_about_us_menu" class="td-subfooter-menu">
+	                        <li id="menu-item-1483" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-first td-menu-item td-normal-menu menu-item-1483"><a href="https://uapolicy.org/?page_id=40">Главная</a></li>
+	                        <li id="menu-item-1656" class="menu-item menu-item-type-custom menu-item-object-custom td-menu-item td-normal-menu menu-item-1656"><a href="https://uapolicy.org/index.php/category/news/">Статьи</a></li>
+	                        <li id="menu-item-1484" class="menu-item menu-item-type-post_type menu-item-object-page td-menu-item td-normal-menu menu-item-1484"><a href="https://uapolicy.org/index.php/o-nas/">О нас</a></li>
+	                        <li id="menu-item-1485" class="menu-item menu-item-type-post_type menu-item-object-page td-menu-item td-normal-menu menu-item-1485"><a href="https://uapolicy.org/index.php/projects/">Проекты</a></li>
+	                        <li id="menu-item-1486" class="menu-item menu-item-type-post_type menu-item-object-page td-menu-item td-normal-menu menu-item-1486"><a href="https://uapolicy.org/index.php/contacts/">Контакты</a></li>
+	                    </ul>
+	                </div>
+	            </div>
+
+	            <div class="td-pb-span td-sub-footer-copy">
+	                © ФОНД "УКРАЇНСЬКА ПОЛІТИКА"
+	                <div class="digisol_text" style="color:#ccc;padding-bottom:2px;">Proudly made by
+	                    <a href="https://digisol.agency/">digisol.agency</a></div>
+	            </div>
+
+	        </div>
+	    </div>
+	</div>
+
+    <!-- /FOOTER -->
+
+</body>
+</html>
