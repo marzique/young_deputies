@@ -11,8 +11,7 @@ class Deputy(models.Model):
 	laws = models.IntegerField()
 	photo = models.CharField(max_length=200)
 	monitoring = models.IntegerField()
-	# TODO: rename to attendance!
-	poseshenie = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)]) 
+	attendance = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)]) 
 	last_month_position = models.IntegerField()
 	position_current = models.IntegerField()
 	rating_upfoundation = models.IntegerField()

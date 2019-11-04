@@ -8,7 +8,7 @@ def index(request):
     context = {}
     rate = get_usd_rate()
     context['usd_rate'] = rate
-    qs = Deputy.objects.all()
+    qs = Deputy.objects.order_by('position_current')
     context['deputies'] = qs
 
     return render(request, 'rating/index.html', context)
