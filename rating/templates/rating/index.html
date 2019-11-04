@@ -4,7 +4,9 @@
 
 <head>
     <meta charset="UTF-8">
-
+	
+	<link rel="icon" type="image/png" href="https://uapolicy.org/wp-content/uploads/2019/02/favicon_new.png">
+	
     <!-- WP theme styles -->
     <link rel="stylesheet" type="text/css" href="{% static 'rating/css/newspaper.css' %}">
 
@@ -130,7 +132,12 @@
     <!-- /HEADER -->
 
     <section class="main_rating td-main-content-wrap td-main-page-wrap td-container-wrap">
-    	<h1 style="font-size: 100px; margin: 0; position: relative; top: 50%;">НОВИНСКИЙ СОСУН</h1>
+    	<div class="tdc-row">
+    		<h1 style="">НОВИНСКИЙ СОСУН</h1>
+    		{% for deputy in deputies %}
+			<h2>{{deputy.name}}</h2>
+    		{% endfor%}
+    	</div>
     </section>
 
     <!-- FOOTER -->

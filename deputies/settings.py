@@ -109,9 +109,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # use different settings for local development and production server
-RUNNING_DEVSERVER = (len(sys.argv) > 1 and sys.argv[1] == 'runserver')
-# RUNNING_DEVSERVER = True
+# RUNNING_DEVSERVER = (len(sys.argv) > 1 and sys.argv[1] == 'runserver')
+RUNNING_DEVSERVER = True
 # Server
 if not RUNNING_DEVSERVER:
     DEBUG = False

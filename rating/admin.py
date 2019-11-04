@@ -1,6 +1,7 @@
 from django.contrib import admin
-
-# Register your models here.
+from .models import Deputy
 
 
 admin.site.site_header = 'Young Deputies Rating'
+
+admin.site.register(Deputy)
