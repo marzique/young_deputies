@@ -3,12 +3,10 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 import os
 
 
-# Create your models here.
-
 class Deputy(models.Model):
     rada_id = models.IntegerField()
     name = models.CharField(max_length=200) # "Порошенко Петро "
-    laws = models.IntegerField()
+    submitted_laws = models.IntegerField()
     photo = models.CharField(max_length=200)
     monitoring = models.IntegerField()
     attendance = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)]) 

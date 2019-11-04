@@ -14,6 +14,7 @@ def index(request):
     return render(request, 'rating/index.html', context)
 
 
+# TODO: move it somewhere
 def get_usd_rate():
     """Return current USD to UAH rate as float with 2 deciamals after dot"""
     context = {}
@@ -32,3 +33,9 @@ def get_usd_rate():
             return round(item['rate'], 2)
     else:
         return None
+
+
+# TODO:
+# every last day of the month update via CRON like feature:
+# - laws number
+# - google articles number
