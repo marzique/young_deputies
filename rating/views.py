@@ -23,17 +23,15 @@ def get_usd_rate():
     try: 
         response = requests.get(url=nbu_url)
         data = response.json()
+        for item in data:
+            if item['cc'] == 'USD':
+                return round(item['rate'], 2)
+        else:
+            return None
     except:
         # if mistake occured 
         # TODO: use explicit excepion here
         get_usd_rate()
-
-    for item in data:
-        if item['cc'] == 'USD':
-            return round(item['rate'], 2)
-    else:
-        return None
-
 
 # TODO:
 # every last day of the month update via CRON like feature:

@@ -1,20 +1,30 @@
 {% extends "rating/base.html" %}
 {% load static %}
 {% block content %}
-    <h1 style="">Рейтинг хуейтинг</h1>
 
-    {% for deputy in deputies %}
-    <div class="deputy {% if deputy.position_current <= 3 %}top3{% endif %}">
-        <p><span class="current">{{deputy.position_current}}.</span></p>
-        {{deputy.position_change_snippet|safe}}
-        <img class="avatar" src="{% get_static_prefix %}rating/img/deputies/{{ deputy.photo }}" alt="">
-        <h2>{{deputy.name}}</h2>
-        <p class="party">Партия: {{deputy.get_party_display}}</p>
-        <p>Законопроекты: {{ deputy.submitted_laws }}</p>
-        <p>СМИ: {{ deputy.monitoring }}</p>
-        <p>UPFoundation: {{deputy.rating_upfoundation}}</p>
-        <p>Посещение: {{deputy.attendance}}</p>
+    <div class="blue-line full-width">
+        <h1 style="">Рейтинг молодых политиков</h1>
     </div>
-    {% endfor%}
+
+    <div class="deputies">
+        {% for deputy in deputies %}
+        <div class="deputy {% if deputy.position_current <= 3 %}top3{% endif %}">
+            <p class="current">{{deputy.position_current}}.</p>
+            {{deputy.position_change_snippet|safe}}
+            <div class="main-info">
+                <img class="avatar" src="{% get_static_prefix %}rating/img/deputies/{{ deputy.photo }}" alt="">
+                <h2>{{deputy.name_surname}}</h2>
+                <p class="party">{{deputy.get_party_display}}</p>
+            </div>
+            <div class="table">
+                <p class="laws">{{ deputy.submitted_laws }}</p>
+                <p class="smi">{{ deputy.monitoring }}</p>
+                <p class="upr">{{deputy.rating_upfoundation}}</p>
+                <p class="attendance">{{deputy.attendance}}%</p>
+            </div>
+        </div>
+        {% endfor%}
+    </div>
+    
 
 {% endblock content%}  

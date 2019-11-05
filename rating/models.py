@@ -51,7 +51,8 @@ class Deputy(models.Model):
         elif difference < 0:
             return f'<span class="difference negative">({difference})<i class="fas fa-long-arrow-alt-down"></i></span>'
         else:
-            return ''
+            return '<span class="difference null">(-)</span>'
     
-
-    
+    def name_surname(self):
+        splitted = self.name.split(' ')
+        return ' '.join(splitted[:2][::-1])

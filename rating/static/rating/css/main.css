@@ -1,46 +1,188 @@
 .main_rating{
 	min-height: 50vh;
 	background-color: #EEEDF3;
-	padding-top: 48px;
+	padding-top: 0;
+}
+
+.blue-line{
+    background-color: #3949AB;
+    background-image: url(../img/updown.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    height: 200px;
+    margin-bottom: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-width {
+    margin-right: calc(-100vw / 2 + 1068px / 2);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.blue-line h1{
+    font-family: Roboto Slab;
+    
+    font-weight: normal;
+    font-size: 42px;
+    color: #EBECF2;
 }
 
 .deputy{
     display: flex;
-    margin: 50px 1%;
+    align-items: center;
     background: #FFFFFF;
+    height: 70px;
+    margin: 85px 0;
+    position: relative;
+    padding: 0 50px 0 20px;
 }
 
 .deputy h2{
     font-family: Open Sans;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 11px;
+    font-weight: 700;
+    font-size: 16px;
+    transform: translate(50px, -110%);
+}
+
+.deputy.top3 h2{
+    transform: translate(20px, -50%);
+}
+
+.main-info{
+    display: flex;
+    position: relative;
 }
 
 .deputy .avatar{
     object-fit: cover;
-    width: 10%;
-    height: 100%;
-    min-width: 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid #3949AB;
+    transform: translate(25px, -30%);
 }
 
 .deputy.top3 .avatar{
-    width: 15%;
+    width: 130px;
+    height: 130px;
+    transform: translate(0, -30%)
 }
 
 .deputy .current{
-    color: grey;
-    font-size: 2em;
+    font-family: Roboto Slab;
+    font-weight: bold;
+    font-size: 28px;
+    color: #000000;
+    margin: 0;
+}
+
+.difference{
+    display: flex;
+    font-family: Roboto Slab;
+    font-weight: bold;
+    font-size: 19px;
+    margin-left: 10px;
+    margin-right: 50px;
+    position: relative;
+    top: 6px;
+    width: 50px;
+}
+
+.difference i{
+    margin-left: 2px;
+    font-size: 23px;
 }
 
 .positive{
     color: #63B06B;
+    
 }
 
 .negative{
     color: #DA654B;
 }
 
-.difference{
+.null{
+    color: #B6BBD5;
+}
+
+.party{
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    color: #3949AB;
+    margin: 0;
+    position: absolute;
+    left: 150px;
+    top: 31px;
+    white-space: nowrap;
+}
+
+.deputy.top3 .party{
+    top: 52px;
+}
+
+
+.laws, .smi, .upr, .attendance{
+    font-family: Roboto Slab;
+    font-weight: bold;
+    font-size: 16px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+
+}
+
+.laws, .smi, .upr{
+    color: #000000;
+}
+
+.attendance{
+    color: #3949AB;
+}
+
+.table{
+    display: flex;
+    position: absolute;
+    left: 600px;
+    width: 450px;
+}
+
+.deputy:first-child .difference::after{
+    content: 'ПОЗИЦИЯ';
+}
+
+.deputy:first-child .laws::after{
+    content: 'ЗАКОНОПРОЕКТЫ';
+}
+
+.deputy:first-child .smi::after{
+    content: 'СМИ';
+}
+
+.deputy:first-child .upr::after{
+    content: 'UPR';
+}
+
+.deputy:first-child .attendance::after{
+    content: 'ПОСЕЩЕНИЕ';
+}
+
+
+.deputy:first-child *::after{
+    position: absolute;
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 16px;
+    color: #B6BBD5;
+    top: -56px;
 }
