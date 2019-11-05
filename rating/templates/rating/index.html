@@ -5,21 +5,15 @@
 
     {% for deputy in deputies %}
     <div class="deputy {% if deputy.position_current <= 3 %}top3{% endif %}">
+        <p><span class="current">{{deputy.position_current}}.</span></p>
+        {{deputy.position_change_snippet|safe}}
         <img class="avatar" src="{% get_static_prefix %}rating/img/deputies/{{ deputy.photo }}" alt="">
-        <div class="info">
-            <div class="col">
-                <h2>{{deputy.name}}</h2>
-                <p class="party">Партия:  <img class="party_logo" src="{% get_static_prefix %}rating/img/parties/{{ deputy.party }}.jpg" alt="{{deputy.get_party_display}}"></p>
-                <p>Место: <span class="current">{{deputy.position_current}}</span></p>
-                <p>Прошлый месяц: <span class="last_month">{{deputy.last_month_position}}</span> {{deputy.position_change_snippet|safe}}</p>
-            </div>
-            <div class="col">
-                <p>Законопроекты: {{ deputy.submitted_laws }}</p>
-                <p>СМИ: {{ deputy.monitoring }}</p>
-                <p>UPFoundation: {{deputy.rating_upfoundation}}</p>
-                <p>Посещение: {{deputy.attendance}}</p>
-            </div>
-        </div>
+        <h2>{{deputy.name}}</h2>
+        <p class="party">Партия: {{deputy.get_party_display}}</p>
+        <p>Законопроекты: {{ deputy.submitted_laws }}</p>
+        <p>СМИ: {{ deputy.monitoring }}</p>
+        <p>UPFoundation: {{deputy.rating_upfoundation}}</p>
+        <p>Посещение: {{deputy.attendance}}</p>
     </div>
     {% endfor%}
 

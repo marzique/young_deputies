@@ -47,9 +47,9 @@ class Deputy(models.Model):
     def position_change_snippet(self):
         difference =  self.last_month_position - self.position_current
         if difference > 0:
-            return f'<span class="difference positive">+{difference}</span>'
+            return f'<span class="difference positive">(+{difference})<i class="fas fa-long-arrow-alt-up"></i></span>'
         elif difference < 0:
-            return f'<span class="difference negative">{difference}</span>'
+            return f'<span class="difference negative">({difference})<i class="fas fa-long-arrow-alt-down"></i></span>'
         else:
             return ''
     
