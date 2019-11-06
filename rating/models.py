@@ -56,3 +56,7 @@ class Deputy(models.Model):
     def name_surname(self):
         splitted = self.name.split(' ')
         return ' '.join(splitted[:2][::-1])
+
+    def attendance_to_degrees(self):
+        """Scale 100% percentage to 180 degrees"""
+        return self.attendance * 1.8

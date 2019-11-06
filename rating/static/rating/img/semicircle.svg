@@ -1,3 +1,15 @@
-<svg width="200" height="100" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="100" width="100" height="200" transform="rotate(-90 0 100)" fill="#63B06B"/>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+<circle cx="100" cy="100" r="82.2222" transform="rotate(-90 100 100)" stroke="#63B06B" stroke-width="35.5556"/>
+</mask>
+<g mask="url(#mask0)">
+<rect y="200" width="100" height="200" transform="rotate(-90 0 200)" fill="#63B06B"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="200" height="200" fill="white"/>
+</clipPath>
+</defs>
 </svg>

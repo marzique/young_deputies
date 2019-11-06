@@ -41,7 +41,7 @@
     height: 70px;
     margin: 60px 0;
     position: relative;
-    padding: 0 50px 0 20px;
+    padding: 0 0 0 20px;
 }
 
 .deputy.top3{
@@ -155,11 +155,21 @@
     top: 15px;
 }
 
+.attendance-wrapper{
+    position: absolute;
+    right: -10px;
+    width: 215px;
+    height: 70px;
+    overflow: hidden;
+}
+
 .table{
     display: flex;
     position: absolute;
     left: 580px;
+    align-items: center;
     width: 450px;
+    height: 100%;
 }
 
 .deputy:first-child .difference::after{
@@ -195,4 +205,15 @@
     font-size: 16px;
     color: #B6BBD5;
     top: -56px;
+}
+
+.semicircle, .circle{
+    position: absolute;
+    top: 7px;
+    width: 125px;
+    left: 85px;
+}
+
+.semicircle{
+    
 }

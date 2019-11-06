@@ -20,7 +20,13 @@
                 <p class="laws">{{ deputy.submitted_laws }}</p>
                 <p class="smi">{{ deputy.monitoring }}</p>
                 <p class="upr">{{deputy.rating_upfoundation}}</p>
-                <p class="attendance">{{deputy.attendance}}%</p>
+                <p class="attendance">
+                    {{deputy.attendance}}%
+                </p>
+                <div class="attendance-wrapper">
+                    <img class="circle" src="{% static 'rating/img/circle.svg' %}">
+                    <img class="semicircle" src="{% static 'rating/img/semicircle.svg' %}" style="transform: rotate({{deputy.attendance_to_degrees}}deg)">
+                </div>
             </div>
         </div>
         {% endfor%}
