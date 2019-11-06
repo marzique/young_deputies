@@ -1,4 +1,5 @@
 from .rada.scraper import laws_by_deputy
+from .googler.scraper import total_search_results
 from .models import Deputy
 
 
@@ -8,5 +9,11 @@ def refresh_deputies_laws_number():
     for deputy in deputies:
         deputy.laws = laws_by_deputy(deputy.rada_id)
         deputy.save()
-    # TODO: set some last_updated_value as singleton model in db here
 
+
+def refresh_deputies_google_search_number():
+    """"""
+    deputies = Deputy.objects.all()
+    for deputy in deputies:
+        deputy.monitoring = total_search_results(deputy.name_surname())
+        deputy.save()
