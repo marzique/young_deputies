@@ -17,12 +17,12 @@ def laws_by_deputy(id_):
     return total_laws
 
 
-def parse_js_page(url, sleep_time=5):
+def parse_js_page(url, sleep_time=10):
     """Scrape webpage even if it uses JavaScript to load elements.
     Return HTML string or None if connection timed out.
     """
     browser = set_browser()
-    browser.set_page_load_timeout(10)
+    browser.set_page_load_timeout(sleep_time)
 
     try:
         browser.get(url)
@@ -37,7 +37,7 @@ def set_browser():
     options = Options()
     options.add_argument('--headless') # disable chrome GUI for CLI
     options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage') 
+    options.add_argument('--disable-dev-shm-usage')
 
     return webdriver.Chrome(choose_driver(), chrome_options=options)
 
