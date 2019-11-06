@@ -125,14 +125,13 @@
     margin: 0;
     position: absolute;
     left: 145px;
-    top: 31px;
+    top: 40px;
     white-space: nowrap;
 }
 
 .deputy.top3 .party{
-    top: 52px;
+    top: 56px;
 }
-
 
 .laws, .smi, .upr, .attendance{
     font-family: Roboto Slab;
@@ -215,5 +214,5 @@
 }
 
 .semicircle{
-    
+
 }
