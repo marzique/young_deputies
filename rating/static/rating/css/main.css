@@ -193,6 +193,7 @@
 
 .deputy:first-child .attendance::after{
     content: 'ПОСЕЩЕНИЕ';
+    left: 4px;
     top: -71px;
 }
 
