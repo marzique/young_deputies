@@ -215,5 +215,9 @@
 }
 
 .semicircle{
+    transition: transform 1.5s ease-in-out;
+}
 
+.semicircle.init{
+    transform: rotate(0) !important;
 }
