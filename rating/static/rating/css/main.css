@@ -29,8 +29,7 @@
 
 .blue-line h1{
     font-family: Roboto Slab;
-    
-    font-weight: normal;
+    font-weight: 300;
     font-size: 42px;
     color: #EBECF2;
 }
@@ -40,20 +39,24 @@
     align-items: center;
     background: #FFFFFF;
     height: 70px;
-    margin: 85px 0;
+    margin: 60px 0;
     position: relative;
     padding: 0 50px 0 20px;
+}
+
+.deputy.top3{
+    margin: 85px 0;
 }
 
 .deputy h2{
     font-family: Open Sans;
     font-weight: 700;
     font-size: 16px;
-    transform: translate(50px, -110%);
+    transform: translate(45px, -110%);
 }
 
 .deputy.top3 h2{
-    transform: translate(20px, -50%);
+    transform: translate(15px, -50%);
 }
 
 .main-info{
@@ -121,7 +124,7 @@
     color: #3949AB;
     margin: 0;
     position: absolute;
-    left: 150px;
+    left: 145px;
     top: 31px;
     white-space: nowrap;
 }
@@ -139,7 +142,7 @@
     display: flex;
     justify-content: center;
     margin: 0;
-
+    position: relative;
 }
 
 .laws, .smi, .upr{
@@ -148,40 +151,47 @@
 
 .attendance{
     color: #3949AB;
+    position: relative;
+    top: 15px;
 }
 
 .table{
     display: flex;
     position: absolute;
-    left: 600px;
+    left: 580px;
     width: 450px;
 }
 
 .deputy:first-child .difference::after{
     content: 'ПОЗИЦИЯ';
+    left: -31px;
 }
 
 .deputy:first-child .laws::after{
     content: 'ЗАКОНОПРОЕКТЫ';
+    left: -75px;
 }
 
 .deputy:first-child .smi::after{
     content: 'СМИ';
+    left: 26px;
 }
 
 .deputy:first-child .upr::after{
     content: 'UPR';
+    left: 35px;
 }
 
 .deputy:first-child .attendance::after{
     content: 'ПОСЕЩЕНИЕ';
+    top: -71px;
 }
 
 
 .deputy:first-child *::after{
     position: absolute;
     font-family: Open Sans;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 16px;
     color: #B6BBD5;
     top: -56px;
