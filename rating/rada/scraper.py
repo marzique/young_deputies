@@ -13,6 +13,7 @@ def laws_by_deputy(id_):
     soup = BeautifulSoup(deputy_html, 'html.parser')
     table = soup.find('table')
     total_laws = len(table.find_all('tr')) - 1
+    print(total_laws)
 
     return total_laws
 

@@ -7,7 +7,7 @@ def refresh_deputies_laws_number():
     """Refresh each deputy's submitted laws variable by scraping it from rada website"""
     deputies = Deputy.objects.all()
     for deputy in deputies:
-        deputy.laws = laws_by_deputy(deputy.rada_id)
+        deputy.submitted_laws = laws_by_deputy(deputy.rada_id)
         deputy.save()
 
 
