@@ -4,5 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
         $('.semicircle').removeClass('init')
     }
 
+    $('.semicircle').addClass('init')
+    
+
     setTimeout(fill_semicircles, 300)
 })
