@@ -32,6 +32,7 @@
     font-weight: 300;
     font-size: 42px;
     color: #EBECF2;
+    margin: 0;
 }
 
 .deputy{
@@ -225,6 +226,16 @@
 
 
 @media (max-width: 1140px) and (min-width: 1019px){
+
+    .blue-line {
+        height: 175px;
+        margin-bottom: 85px;
+    }
+
+    .blue-line h1 {
+        font-size: 40px;
+    }
+
     .deputy{
         height: 55px;
         margin: 50px 0;
@@ -330,6 +341,15 @@
 
 
 @media (max-width: 1018px) and (min-width: 768px){
+
+    .blue-line {
+        height: 150px;
+        margin-bottom: 65px;
+    }
+
+    .blue-line h1 {
+        font-size: 36px;
+    }
 
     .deputy{
         height: 50px;
