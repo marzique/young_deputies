@@ -25,7 +25,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'hz(0ju)-c&k(n3s1x@8&d0*dj#u8$&vau%ak7*ep40l64jvwdm'
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['206.81.30.243', 'deputies.uapolicy.org',
+                 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -113,8 +114,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # use different settings for local development and production server
-# RUNNING_DEVSERVER = (len(sys.argv) > 1 and sys.argv[1] == 'runserver')
-RUNNING_DEVSERVER = True
+RUNNING_DEVSERVER = (len(sys.argv) > 1 and sys.argv[1] == 'runserver')
+# RUNNING_DEVSERVER = True
 # Server
 if not RUNNING_DEVSERVER:
     DEBUG = False
@@ -122,9 +123,9 @@ if not RUNNING_DEVSERVER:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'kyiv_exclusive',
-            'USER': 'kyiv_user',
-            'PASSWORD': '0UO,3g1<NY%mkVOU)JBe',
+            'NAME': 'deputies',
+            'USER': 'deputies_user',
+            'PASSWORD': 'v)e,[>6WI@e36N&0$>n2',
             'HOST': 'localhost',
             'PORT': '',
         }
