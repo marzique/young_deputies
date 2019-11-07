@@ -115,7 +115,7 @@ MEDIA_URL = '/media/'
 
 
 # use different settings for local development and production server
-RUNNING_DEVSERVER = (len(sys.argv) > 1 and sys.argv[1] == 'runserver') or (len(sys.argv) > 1 and sys.argv[1] == 'shell')
+RUNNING_DEVSERVER = (len(sys.argv) > 1 and sys.argv[1] == 'runserver')
 # RUNNING_DEVSERVER = True
 # Server
 if not RUNNING_DEVSERVER:
