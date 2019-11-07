@@ -51,18 +51,15 @@ def choose_driver():
     script_dir = os.path.dirname(__file__) 
     system = platform.system()
 
-    if not settings.RUNNING_DEVSERVER:
-        return '/usr/bin/chromedriver'
+    if system.lower() == 'linux':
+        return os.path.join(script_dir, 'data', 'chromedriver_linux')
+    elif system.lower() == 'darwin':
+        return os.path.join(script_dir, 'data', 'chromedriver_mac')
+    elif system.lower() == 'windows':
+        return os.path.join(script_dir, 'data', 'chromedriver_win.exe')
     else:
-        if system.lower() == 'linux':
-            return os.path.join(script_dir, 'data', 'chromedriver_linux')
-        elif system.lower() == 'darwin':
-            return os.path.join(script_dir, 'data', 'chromedriver_mac')
-        elif system.lower() == 'windows':
-            return os.path.join(script_dir, 'data', 'chromedriver_win.exe')
-        else:
-            print('Chromedriver not found!.\n Aborting...')
-            sys.exit(0)
+        print('Chromedriver not found!.\n Aborting...')
+        sys.exit(0)
 
 
 def deputy_url_by_id(id_):
