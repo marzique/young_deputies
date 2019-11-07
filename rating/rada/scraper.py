@@ -1,3 +1,4 @@
+from django.conf import settings
 from selenium import webdriver 
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.options import Options
@@ -47,15 +48,18 @@ def choose_driver():
     script_dir = os.path.dirname(__file__) 
     system = platform.system()
 
-    if system.lower() == 'linux':
-        return os.path.join(script_dir, 'data', 'chromedriver_linux')
-    elif system.lower() == 'darwin':
-        return os.path.join(script_dir, 'data', 'chromedriver_mac')
-    elif system.lower() == 'windows':
-        return os.path.join(script_dir, 'data', 'chromedriver_win.exe')
+    if not settings.RUNNING_DEVSERVER:
+        return '/usr/bin/chromedriver'
     else:
-        print('Chromedriver not found!.\n Aborting...')
-        sys.exit(0)
+        if system.lower() == 'linux':
+            return os.path.join(script_dir, 'data', 'chromedriver_linux')
+        elif system.lower() == 'darwin':
+            return os.path.join(script_dir, 'data', 'chromedriver_mac')
+        elif system.lower() == 'windows':
+            return os.path.join(script_dir, 'data', 'chromedriver_win.exe')
+        else:
+            print('Chromedriver not found!.\n Aborting...')
+            sys.exit(0)
 
 
 def deputy_url_by_id(id_):
