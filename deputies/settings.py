@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'hz(0ju)-c&k(n3s1x@8&d0*dj#u8$&vau%ak7*ep40l64jvwdm'
 
 
-ALLOWED_HOSTS = ['206.81.30.243', 'deputies.uapolicy.org',
+ALLOWED_HOSTS = ['206.81.30.243', 'rating.uapolicy.org',
                  'localhost', '127.0.0.1']
 
 
