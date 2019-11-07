@@ -1,3 +1,7 @@
+body, html{
+    overflow-x: hidden;
+}
+
 .main_rating{
 	min-height: 50vh;
 	background-color: #EEEDF3;
@@ -409,6 +413,134 @@
         margin-right: 25px;
         top: 4px;
         width: 30px;
+    }
+
+    .table {
+        left: 400px;
+        width: 315px;
+    }
+
+    .attendance-wrapper {
+        right: -10px;
+        width: 215px;
+        height: 50px;
+    }
+
+    .semicircle, .circle {
+        top: 10px;
+        width: 80px;
+        left: 122px;
+    }
+
+    .deputy:first-child .attendance::after {
+        left: -6px;
+        top: -58px;
+    }
+
+    .laws, .smi, .upr, .attendance {
+        font-size: 14px;
+    }
+
+    .deputy:first-child .laws::after {
+        left: -45px;
+    }
+
+    .deputy:first-child .smi::after {
+        left: 32px;
+    }
+
+    .deputy:first-child .upr::after {
+        left: 23px;
+    }
+}
+
+
+
+@media (max-width: 767px){
+
+    .blue-line {
+        height: 150px;
+        margin-bottom: 65px;
+    }
+
+    .blue-line h1 {
+        font-size: 22px;
+        text-align: center;
+        background-position: 85%;
+        background-size: 220%;
+    }
+
+    .deputy{
+        height: 40px;
+        padding: 0 0 0 5px;
+    }
+
+    .deputy.top3 {
+        margin: 35px 0;
+    }
+    
+    .deputy.top3 .avatar {
+        width: 60px;
+        height: 60px;
+        transform: translate(0, -10%);
+    }
+
+    .deputy.top3 .party {
+        top: 34px;
+    }
+
+    .party {
+        font-size: 13px;
+        left: 102px;
+        top: 34px;
+    }
+
+    .deputy.top3 h2 {
+        transform: translate(15px, -120%);
+    }
+
+    .deputy h2 {
+        transform: translate(32px, -125%);
+    }
+
+    .deputy:first-child *::after {
+        font-size: 10px;
+        top: -43px;
+    }
+
+    .deputy .avatar {
+        width: 70px;
+        height: 70px;
+        border: 7px solid #3949AB;
+        transform: translate(15px, -25%);
+    }
+
+    .deputy:first-child .difference::after {
+        content: 'ПОЗИЦИЯ';
+        left: -20px;
+    }
+
+    .deputy h2 {
+        font-size: 10px;
+    }
+
+    .deputy .current {
+        font-size: 16px;
+    }
+
+    .difference {
+        font-size: 12px;
+        margin-left: 6px;
+        margin-right: 6px;
+        top: 4px;
+        width: 30px;
+        display: flex;
+        align-items: center;
+    }
+
+    .difference i {
+        margin-left: 1px;
+        font-size: 15px;
     }
 
     .table {
