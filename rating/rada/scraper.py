@@ -11,6 +11,9 @@ import os
 def laws_by_deputy(id_):
     """Return number of law projects for deputy by his/her id"""
     deputy_html = parse_js_page(laws_url_by_id(id_))
+    if not deputy_html:
+        # couldnt scrape page
+        return 0
     soup = BeautifulSoup(deputy_html, 'html.parser')
     table = soup.find('table')
     total_laws = len(table.find_all('tr')) - 1
@@ -19,7 +22,7 @@ def laws_by_deputy(id_):
     return total_laws
 
 
-def parse_js_page(url, sleep_time=10):
+def parse_js_page(url, sleep_time=300):
     """Scrape webpage even if it uses JavaScript to load elements.
     Return HTML string or None if connection timed out.
     """
