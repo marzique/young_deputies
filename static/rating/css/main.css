@@ -1,0 +1,451 @@
+.main_rating{
+	min-height: 50vh;
+	background-color: #EEEDF3;
+	padding-top: 0;
+}
+
+.blue-line{
+    background-color: #3949AB;
+    background-image: url(../img/updown.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    height: 200px;
+    margin-bottom: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-width {
+    margin-right: calc(-100vw / 2 + 1068px / 2);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.blue-line h1{
+    font-family: Roboto Slab;
+    font-weight: 300;
+    font-size: 42px;
+    color: #EBECF2;
+    margin: 0;
+}
+
+.deputy{
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    height: 70px;
+    margin: 60px 0;
+    position: relative;
+    padding: 0 0 0 20px;
+}
+
+.deputy.top3{
+    margin: 85px 0;
+}
+
+.deputy h2{
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 16px;
+    transform: translate(45px, -110%);
+}
+
+.deputy.top3 h2{
+    transform: translate(15px, -50%);
+}
+
+.main-info{
+    display: flex;
+    position: relative;
+}
+
+.deputy .avatar{
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid #3949AB;
+    transform: translate(25px, -30%);
+}
+
+.deputy.top3 .avatar{
+    width: 130px;
+    height: 130px;
+    transform: translate(0, -30%)
+}
+
+.deputy .current{
+    font-family: Roboto Slab;
+    font-weight: bold;
+    font-size: 28px;
+    color: #000000;
+    margin: 0;
+}
+
+.difference{
+    display: flex;
+    font-family: Roboto Slab;
+    font-weight: bold;
+    font-size: 19px;
+    margin-left: 10px;
+    margin-right: 50px;
+    position: relative;
+    top: 6px;
+    width: 50px;
+}
+
+.difference i{
+    margin-left: 2px;
+    font-size: 23px;
+}
+
+.positive{
+    color: #63B06B;
+    
+}
+
+.negative{
+    color: #DA654B;
+}
+
+.null{
+    color: #B6BBD5;
+}
+
+.party{
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    color: #3949AB;
+    margin: 0;
+    position: absolute;
+    left: 145px;
+    top: 40px;
+    white-space: nowrap;
+}
+
+.deputy.top3 .party{
+    top: 56px;
+}
+
+.laws, .smi, .upr, .attendance{
+    font-family: Roboto Slab;
+    font-weight: bold;
+    font-size: 16px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    position: relative;
+}
+
+.laws, .smi, .upr{
+    color: #000000;
+}
+
+.attendance{
+    color: #3949AB;
+    position: relative;
+    top: 15px;
+}
+
+.attendance-wrapper{
+    position: absolute;
+    right: -10px;
+    width: 215px;
+    height: 70px;
+    overflow: hidden;
+}
+
+.table{
+    display: flex;
+    position: absolute;
+    left: 580px;
+    align-items: center;
+    width: 450px;
+    height: 100%;
+}
+
+.deputy:first-child .difference::after{
+    content: 'ПОЗИЦИЯ';
+    left: -31px;
+}
+
+.deputy:first-child .laws::after{
+    content: 'ЗАКОНОПРОЕКТЫ';
+    left: -75px;
+}
+
+.deputy:first-child .smi::after{
+    content: 'СМИ';
+    left: 26px;
+}
+
+.deputy:first-child .upr::after{
+    content: 'UPR';
+    left: 35px;
+}
+
+.deputy:first-child .attendance::after{
+    content: 'ПОСЕЩЕНИЕ';
+    left: 4px;
+    top: -71px;
+}
+
+
+.deputy:first-child *::after{
+    position: absolute;
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    color: #B6BBD5;
+    top: -56px;
+}
+
+.semicircle, .circle{
+    position: absolute;
+    top: 7px;
+    width: 125px;
+    left: 85px;
+}
+
+.semicircle{
+    transition: transform 1.5s ease-in-out;
+}
+
+.semicircle.init{
+    transform: rotate(0) !important;
+}
+
+
+
+@media (max-width: 1140px) and (min-width: 1019px){
+
+    .blue-line {
+        height: 175px;
+        margin-bottom: 85px;
+    }
+
+    .blue-line h1 {
+        font-size: 40px;
+    }
+
+    .deputy{
+        height: 55px;
+        margin: 50px 0;
+    }
+
+    .deputy.top3 {
+        margin: 70px 0;
+    }
+
+    .deputy.top3 .avatar {
+        width: 100px;
+        height: 100px;
+        transform: translate(0, -35%);
+    }
+
+    .deputy.top3 .party {
+        top: 39px;
+    }
+
+    .party {
+        font-size: 15px;
+        left: 120px;
+        top: 34px;
+    }
+
+    .deputy.top3 h2 {
+        transform: translate(20px, -100%);
+    }
+
+    .deputy h2 {
+        transform: translate(45px, -125%);
+    }
+
+    .deputy:first-child *::after {
+        font-size: 15px;
+        top: -50px;
+    }
+
+    .deputy .avatar {
+        width: 75px;
+        height: 75px;
+        border: 7px solid #3949AB;
+        transform: translate(25px, -30%);
+    }
+
+    .deputy h2 {
+        font-size: 14px;
+    }
+
+    .deputy .current {
+        font-size: 24px;
+    }
+
+    .difference {
+        display: flex;
+        font-family: Roboto Slab;
+        font-weight: bold;
+        font-size: 16px;
+        margin-left: 10px;
+        margin-right: 35px;
+        position: relative;
+        top: 4px;
+        width: 35px;
+    }
+
+    .table {
+        left: 500px;
+        width: 440px;
+    }
+
+    .attendance-wrapper {
+        right: -10px;
+        width: 215px;
+        height: 55px;
+    }
+
+    .semicircle, .circle {
+        position: absolute;
+        top: 8px;
+        width: 100px;
+        left: 97px;
+    }
+
+    .deputy:first-child .attendance::after {
+        content: 'ПОСЕЩЕНИЕ';
+        left: 4px;
+        top: -65px;
+    }
+
+    .laws, .smi, .upr, .attendance {
+        font-size: 15px;
+    }
+
+    .deputy:first-child .laws::after {
+        left: -68px;
+    }
+
+    .deputy:first-child .smi::after {
+        left: 45px;
+    }
+}
+
+
+
+@media (max-width: 1018px) and (min-width: 768px){
+
+    .blue-line {
+        height: 150px;
+        margin-bottom: 65px;
+    }
+
+    .blue-line h1 {
+        font-size: 36px;
+    }
+
+    .deputy{
+        height: 50px;
+    }
+
+    .deputy.top3 {
+        margin: 70px 0;
+    }
+    
+    .deputy.top3 .avatar {
+        width: 85px;
+        height: 85px;
+        transform: translate(0, -30%);
+    }
+
+    .deputy.top3 .party {
+        top: 34px;
+    }
+
+    .party {
+        font-size: 13px;
+        left: 102px;
+        top: 34px;
+    }
+
+    .deputy.top3 h2 {
+        transform: translate(15px, -120%);
+    }
+
+    .deputy h2 {
+        transform: translate(32px, -125%);
+    }
+
+    .deputy:first-child *::after {
+        font-size: 13px;
+        top: -43px;
+    }
+
+    .deputy .avatar {
+        width: 70px;
+        height: 70px;
+        border: 7px solid #3949AB;
+        transform: translate(15px, -25%);
+    }
+
+    .deputy h2 {
+        font-size: 13px;
+    }
+
+    .deputy .current {
+        font-size: 20px;
+    }
+
+    .difference {
+        font-size: 14px;
+        margin-left: 6px;
+        margin-right: 25px;
+        top: 4px;
+        width: 30px;
+    }
+
+    .table {
+        left: 400px;
+        width: 315px;
+    }
+
+    .attendance-wrapper {
+        right: -10px;
+        width: 215px;
+        height: 50px;
+    }
+
+    .semicircle, .circle {
+        top: 10px;
+        width: 80px;
+        left: 122px;
+    }
+
+    .deputy:first-child .attendance::after {
+        left: -6px;
+        top: -58px;
+    }
+
+    .laws, .smi, .upr, .attendance {
+        font-size: 14px;
+    }
+
+    .deputy:first-child .laws::after {
+        left: -45px;
+    }
+
+    .deputy:first-child .smi::after {
+        left: 32px;
+    }
+
+    .deputy:first-child .upr::after {
+        left: 23px;
+    }
+}
