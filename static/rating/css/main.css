@@ -460,7 +460,7 @@ body, html{
 
     .blue-line {
         height: 150px;
-        margin-bottom: 65px;
+        margin-bottom: 35px;
     }
 
     .blue-line h1 {
@@ -470,13 +470,10 @@ body, html{
         background-size: 220%;
     }
 
-    .deputy{
+    .deputy, .deputy.top3 {
+        margin: 20px 0;
         height: 40px;
         padding: 0 0 0 5px;
-    }
-
-    .deputy.top3 {
-        margin: 35px 0;
     }
     
     .deputy.top3 .avatar {
@@ -486,42 +483,48 @@ body, html{
     }
 
     .deputy.top3 .party {
-        top: 34px;
+
     }
 
-    .party {
-        font-size: 13px;
+    .main-info {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        width: 80px;
+    }
+
+    .party, .deputy.top3 .party {
+        /* font-size: 10px;
         left: 102px;
         top: 34px;
-    }
-
-    .deputy.top3 h2 {
-        transform: translate(15px, -120%);
-    }
-
-    .deputy h2 {
-        transform: translate(32px, -125%);
+        position: initial; */
+        display: none;
     }
 
     .deputy:first-child *::after {
         font-size: 10px;
-        top: -43px;
+        top: -30px;
     }
 
     .deputy .avatar {
-        width: 70px;
+        /* width: 70px;
         height: 70px;
         border: 7px solid #3949AB;
-        transform: translate(15px, -25%);
+        transform: translate(15px, -25%); */
+        display: none;
     }
 
     .deputy:first-child .difference::after {
         content: 'ПОЗИЦИЯ';
         left: -20px;
+        top: -34px;
     }
 
-    .deputy h2 {
+    .deputy h2, .deputy.top3 h2 {
         font-size: 10px;
+        transform: none;
+        line-height: 12px;
+        margin: 0;
     }
 
     .deputy .current {
@@ -531,7 +534,7 @@ body, html{
     .difference {
         font-size: 12px;
         margin-left: 6px;
-        margin-right: 6px;
+        margin-right: 10px;
         top: 4px;
         width: 30px;
         display: flex;
@@ -544,40 +547,41 @@ body, html{
     }
 
     .table {
-        left: 400px;
-        width: 315px;
+        left: 45%;
+        width: 52%;
     }
 
     .attendance-wrapper {
         right: -10px;
         width: 215px;
-        height: 50px;
+        height: 40px;
     }
 
     .semicircle, .circle {
-        top: 10px;
-        width: 80px;
-        left: 122px;
+        top: 24%;
+        width: 28%;
+        left: 70%;
     }
 
     .deputy:first-child .attendance::after {
         left: -6px;
-        top: -58px;
+        top: -45px;
     }
 
     .laws, .smi, .upr, .attendance {
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .deputy:first-child .laws::after {
-        left: -45px;
+        content: 'ЗАКОНЫ';
+        left: 0px;
     }
 
     .deputy:first-child .smi::after {
-        left: 32px;
+        left: 13px;
     }
 
     .deputy:first-child .upr::after {
-        left: 23px;
+        left: 12px;
     }
 }

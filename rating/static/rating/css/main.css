@@ -500,10 +500,11 @@
     }
 
     .deputy .avatar {
-        width: 70px;
+        /* width: 70px;
         height: 70px;
         border: 7px solid #3949AB;
-        transform: translate(15px, -25%);
+        transform: translate(15px, -25%); */
+        display: none;
     }
 
     .deputy h2 {
