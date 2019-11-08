@@ -15,7 +15,7 @@
                 <img class="avatar" src="{% get_static_prefix %}rating/img/deputies/{{ deputy.photo }}" alt="">
                 <h2>{{ deputy.name_surname }}</h2>
                 <p class="party">{{ deputy.get_party_display }}</p>
-                <a href="#" class="vote">
+                <a href="#" class="vote" data-pk="{{ deputy.pk }}">
                     <i class="fas fa-thumbs-up"></i>
                     <span>{{ deputy.votes }}</span>
                 </a>
