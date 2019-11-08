@@ -15,6 +15,7 @@ class Deputy(models.Model):
     rating_upfoundation = models.IntegerField()
     txt_for_page = models.TextField(max_length=2500)
 
+
     SLUGA_NARODU = 'SN'
     OPZZH = 'OP'
     BATKIVSHYNA = 'BT'
@@ -61,7 +62,13 @@ class Deputy(models.Model):
         """Scale 100% percentage to 180 degrees"""
         return self.attendance * 1.8
 
+    def votes(self):
+        return len(self.uniqueuser_set.all()) 
+
 
 class UniqueUser(models.Model):
-    ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=True, unique=True, null=True)
+    ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=True, null=True)
     deputies = models.ManyToManyField(Deputy)
+
+    def __str__(self):
+        return self.ip
