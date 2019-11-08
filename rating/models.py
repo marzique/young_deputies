@@ -15,7 +15,6 @@ class Deputy(models.Model):
     rating_upfoundation = models.IntegerField()
     txt_for_page = models.TextField(max_length=2500)
 
-
     SLUGA_NARODU = 'SN'
     OPZZH = 'OP'
     BATKIVSHYNA = 'BT'
@@ -27,7 +26,7 @@ class Deputy(models.Model):
         (SLUGA_NARODU, 'Слуга Народу'),
         (OPZZH, 'ОПЗЖ'),
         (BATKIVSHYNA, 'Батьківщина'),
-        (E_SOLIDARNIST, 'Європейська Солідарність'),
+        (E_SOLIDARNIST, 'ЄС'),
         (HOLOS, 'Голос'),
         (ZA_MAIBUTNIE, 'За майбутнє'),
         (BEZ_PARTII, 'Позафракційні'),
@@ -63,7 +62,7 @@ class Deputy(models.Model):
         return self.attendance * 1.8
 
     def votes(self):
-        return len(self.uniqueuser_set.all()) 
+        return self.uniqueuser_set.count()
 
 
 class UniqueUser(models.Model):
