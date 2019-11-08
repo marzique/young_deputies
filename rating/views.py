@@ -18,13 +18,16 @@ def index(request):
 
         if user:
             if deputy.uniqueuser_set.filter(ip=IP).exists():
-                print('user exists, and he already voted for this deputy')
+                response = {
+                    'status': 'voted'
+                }
+                return JsonResponse(response)
             else:
-                print('user exists, but he is not voted for this deputy')
+                user.deputies.add(deputy)
         else:
-            # u = UniqueUser(ip=IP)
-            # u.save()
-            print('no user with such ip, create it and count vote for this deputy')
+            u = UniqueUser(ip=IP)
+            u.save()
+            u.deputies.add(deputy)
 
         print(pk)
         response = {

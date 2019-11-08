@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (status == 'success'){
                     $(this).toggleClass('voted')
                 }
-                else{
+                else if (status == 'voted'){
                     alert('You already voted!')
                 }
             },
