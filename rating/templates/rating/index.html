@@ -3,25 +3,29 @@
 {% block content %}
 
     <div class="blue-line full-width">
-        <h1 style="">Рейтинг молодых политиков</h1>
+        <h1>Рейтинг молодых политиков</h1>
     </div>
 
     <div class="deputies">
         {% for deputy in deputies %}
         <div class="deputy {% if deputy.position_current <= 3 %}top3{% endif %}">
-            <p class="current">{{deputy.position_current}}.</p>
-            {{deputy.position_change_snippet|safe}}
+            <p class="current">{{ deputy.position_current }}.</p>
+            {{ deputy.position_change_snippet|safe }}
             <div class="main-info">
                 <img class="avatar" src="{% get_static_prefix %}rating/img/deputies/{{ deputy.photo }}" alt="">
-                <h2>{{deputy.name_surname}}</h2>
-                <p class="party">{{deputy.get_party_display|title }}</p>
+                <h2>{{ deputy.name_surname }}</h2>
+                <p class="party">{{ deputy.get_party_display }}</p>
+                <a href="#" class="vote">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span>328</span>
+                </a>
             </div>
             <div class="table">
                 <p class="laws">{{ deputy.submitted_laws }}</p>
                 <p class="smi">{{ deputy.monitoring }}</p>
-                <p class="upr">{{deputy.rating_upfoundation}}</p>
+                <p class="upr">{{ deputy.rating_upfoundation }}</p>
                 <p class="attendance">
-                    {{deputy.attendance}}%
+                    {{ deputy.attendance }}%
                 </p>
                 <div class="attendance-wrapper">
                     <img class="circle" src="{% static 'rating/img/circle.svg' %}">
@@ -29,8 +33,8 @@
                 </div>
             </div>
         </div>
-        {% endfor%}
+        {% endfor %}
     </div>
     
 
-{% endblock content%}  
+{% endblock content %}  

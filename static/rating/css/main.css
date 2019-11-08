@@ -98,7 +98,7 @@ body, html{
     font-weight: bold;
     font-size: 19px;
     margin-left: 10px;
-    margin-right: 50px;
+    margin-right: 10px;
     position: relative;
     top: 6px;
     width: 50px;
@@ -138,6 +138,33 @@ body, html{
     top: 56px;
 }
 
+.vote{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 365px;
+    top: 39px;
+    color: black;
+    font-family: Open Sans;
+    font-size: 14px;
+}
+
+.vote.voted, .vote.voted i{
+    color: #63B06B;
+}
+
+.deputy.top3 .vote{
+    top: 55px;
+}
+
+.vote i{
+    margin-right: 5px;
+    position: relative;
+    top: -1px;
+    color: #DDDCE4;
+    font-size: 24px;
+}
+
 .laws, .smi, .upr, .attendance{
     font-family: Roboto Slab;
     font-weight: bold;
@@ -170,9 +197,9 @@ body, html{
 .table{
     display: flex;
     position: absolute;
-    left: 580px;
+    left: 625px;
     align-items: center;
-    width: 450px;
+    width: 410px;
     height: 100%;
 }
 

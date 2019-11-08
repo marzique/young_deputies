@@ -24,7 +24,7 @@ class Deputy(models.Model):
     BEZ_PARTII = 'BP'
     PARTIES = [
         (SLUGA_NARODU, 'Слуга Народу'),
-        (OPZZH, 'ОПОЗИЦІЙНА ПЛАТФОРМА - ЗА ЖИТТЯ'),
+        (OPZZH, 'ОПЗЖ'),
         (BATKIVSHYNA, 'Батьківщина'),
         (E_SOLIDARNIST, 'Європейська Солідарність'),
         (HOLOS, 'Голос'),
@@ -60,3 +60,8 @@ class Deputy(models.Model):
     def attendance_to_degrees(self):
         """Scale 100% percentage to 180 degrees"""
         return self.attendance * 1.8
+
+
+class UniqueUser(models.Model):
+    ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=True, unique=True, null=True)
+    deputies = models.ManyToManyField(Deputy)
