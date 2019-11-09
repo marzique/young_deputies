@@ -30,6 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 else if (status == 'removed'){
                     btn.removeClass('voted')
                 }
+                else{
+                    // django couldn't fetch user's IP
+                    alert('К сожалению вы не можете голосовать с этого IP адреса!')
+                }
                 btn.find('span').text(new_amount)
             },
             error: function(){

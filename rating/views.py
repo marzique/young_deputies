@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.db.utils import IntegrityError
 from .models import Deputy, UniqueUser
 from .helpers import get_usd_rate, user_ip
 import requests
@@ -25,9 +26,17 @@ def index(request):
             else:
                 user.deputies.add(deputy)
         else:
-            u = UniqueUser(ip=user_IP)
-            u.save()
-            u.deputies.add(deputy)
+            try:
+                u = UniqueUser(ip=user_IP)
+                u.save()
+                u.deputies.add(deputy)
+            except IntegrityError:
+                response = {
+                    'status': 'badip',
+                    'amount': deputy.votes()
+                }
+                return JsonResponse(response)
+
 
         response = {
             'status': 'success',

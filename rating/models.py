@@ -66,7 +66,7 @@ class Deputy(models.Model):
 
 
 class UniqueUser(models.Model):
-    ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=True, null=True)
+    ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=True)
     deputies = models.ManyToManyField(Deputy)
 
     def __str__(self):
