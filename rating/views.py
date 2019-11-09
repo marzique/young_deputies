@@ -3,51 +3,21 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.db.utils import IntegrityError
 from .models import Deputy, UniqueUser
-from .helpers import get_usd_rate, user_ip
+from .helpers import get_usd_rate, user_ip, handle_vote
 import requests
 
 
 @csrf_exempt
 def index(request):
-    user_IP = user_ip(request)
-    user = UniqueUser.objects.filter(ip=user_IP).first()
     if request.is_ajax():
-        pk = int(request.POST['pk'])
-        deputy = Deputy.objects.filter(pk=pk).first()
-
-        if user:
-            if deputy.uniqueuser_set.filter(ip=user_IP).exists():
-                user.deputies.remove(deputy)
-                response = {
-                    'status': 'removed',
-                    'amount': deputy.votes()
-                }
-                return JsonResponse(response)
-            else:
-                user.deputies.add(deputy)
-        else:
-            try:
-                u = UniqueUser(ip=user_IP)
-                u.save()
-                u.deputies.add(deputy)
-            except IntegrityError:
-                response = {
-                    'status': 'badip',
-                    'amount': deputy.votes()
-                }
-                return JsonResponse(response)
-
-
-        response = {
-            'status': 'success',
-            'amount': deputy.votes()
-        }
-        return JsonResponse(response)
+        return handle_vote(request)
 
     else:
         context = {}
         context['usd_rate'] = get_usd_rate()
         context['deputies'] = Deputy.objects.order_by('position_current')
+        
+        user = UniqueUser.objects.filter(ip=user_ip(request)).first()
         if user:
             context['voted'] = [ deputy.pk for deputy in user.deputies.all()]
 

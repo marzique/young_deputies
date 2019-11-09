@@ -1,8 +1,9 @@
 import requests
+from django.http import JsonResponse
 from ipware import get_client_ip
 from .rada.scraper import laws_by_deputy
 from .googler.scraper import total_search_results
-from .models import Deputy
+from .models import Deputy, UniqueUser
 
 
 def refresh_deputies_laws_number():
@@ -47,3 +48,40 @@ def get_usd_rate():
         # if mistake occured 
         # TODO: use explicit excepion here
         get_usd_rate()
+
+
+def handle_vote(request):
+    """TODO: refactor this mess"""
+    pk = int(request.POST['pk'])
+    deputy = Deputy.objects.filter(pk=pk).first()
+    user_IP = user_ip(request)
+    user = UniqueUser.objects.filter(ip=user_IP).first()
+
+    if user:
+        if deputy.uniqueuser_set.filter(ip=user_IP).exists():
+            user.deputies.remove(deputy)
+            response = {
+                'status': 'removed',
+                'amount': deputy.votes()
+            }
+            return JsonResponse(response)
+        else:
+            user.deputies.add(deputy)
+    else:
+        try:
+            u = UniqueUser(ip=user_IP)
+            u.save()
+            u.deputies.add(deputy)
+        except IntegrityError:
+            response = {
+                'status': 'badip',
+                'amount': deputy.votes()
+            }
+            return JsonResponse(response)
+
+
+    response = {
+        'status': 'success',
+        'amount': deputy.votes()
+    }
+    return JsonResponse(response)
