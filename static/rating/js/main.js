@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // toggle
     $(".vote").on( "click", function(e) {
         e.preventDefault()
-        // $(this).toggleClass('voted')
-        var pk = $(this).data('pk')
+        var btn = $(this)
+        var pk = btn.data('pk')
 
         $.ajax({
             type: 'POST',
@@ -23,12 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             success: function(data) {
                 var status = data['status']
+                var new_amount = data['amount']
                 if (status == 'success'){
-                    $(this).toggleClass('voted')
+                    btn.addClass('voted')
                 }
-                else if (status == 'voted'){
-                    alert('You already voted!')
+                else if (status == 'removed'){
+                    btn.removeClass('voted')
                 }
+                btn.find('span').text(new_amount)
             },
             error: function(){
             	alert("Не робе");

@@ -8,36 +8,39 @@ import requests
 
 @csrf_exempt
 def index(request):
-    IP = user_ip(request)
-    print(IP)
+    user_IP = user_ip(request)
+    user = UniqueUser.objects.filter(ip=user_IP).first()
     if request.is_ajax():
-        
         pk = int(request.POST['pk'])
         deputy = Deputy.objects.filter(pk=pk).first()
-        user = UniqueUser.objects.filter(ip=IP).first()
 
         if user:
-            if deputy.uniqueuser_set.filter(ip=IP).exists():
+            if deputy.uniqueuser_set.filter(ip=user_IP).exists():
+                user.deputies.remove(deputy)
                 response = {
-                    'status': 'voted'
+                    'status': 'removed',
+                    'amount': deputy.votes()
                 }
                 return JsonResponse(response)
             else:
                 user.deputies.add(deputy)
         else:
-            u = UniqueUser(ip=IP)
+            u = UniqueUser(ip=user_IP)
             u.save()
             u.deputies.add(deputy)
 
-        print(pk)
         response = {
-            'status': 'success'
+            'status': 'success',
+            'amount': deputy.votes()
         }
         return JsonResponse(response)
+
     else:
         context = {}
         context['usd_rate'] = get_usd_rate()
         context['deputies'] = Deputy.objects.order_by('position_current')
+        if user:
+            context['voted'] = [ deputy.pk for deputy in user.deputies.all()]
 
         return render(request, 'rating/index.html', context)
    
