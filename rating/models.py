@@ -6,6 +6,7 @@ import os
 class Deputy(models.Model):
     rada_id = models.IntegerField()
     name = models.CharField(max_length=200)
+    name_ukr = models.CharField(max_length=200)
     submitted_laws = models.IntegerField()
     photo = models.CharField(max_length=200)
     monitoring = models.IntegerField()
@@ -45,7 +46,7 @@ class Deputy(models.Model):
         return self.last_month_position - self.position_current
 
     def position_change_snippet(self):
-        difference =  self.position_change
+        difference = self.position_change()
         if difference > 0:
             return f'<span class="difference positive">(+{difference})<i class="fas fa-long-arrow-alt-up"></i></span>'
         elif difference < 0:
@@ -56,6 +57,14 @@ class Deputy(models.Model):
     def name_surname(self):
         splitted = self.name.split(' ')
         return ' '.join(splitted[:2][::-1])
+    
+    def surname(self):
+        splitted = self.name.split(' ')
+        return splitted[0]
+    
+    def surname_ukr(self):
+        splitted = self.name_ukr.split(' ')
+        return splitted[0]
 
     def attendance_to_degrees(self):
         """Scale 100% percentage to 180 degrees"""

@@ -18,7 +18,11 @@ def refresh_deputies_google_search_number():
     """Refresh each deputy's google search number"""
     deputies = Deputy.objects.all()
     for deputy in deputies:
-        deputy.monitoring = total_search_results(deputy.name_surname())
+        rus = int(total_search_results(deputy.surname()))
+        ukr = int(total_search_results(deputy.surname_ukr()))
+        mean = int((rus + ukr) / 2)
+        print(f'rus: {rus}, ukr: {ukr}, mean: {mean}')
+        deputy.monitoring = mean
         deputy.save()
 
 
