@@ -5,7 +5,7 @@ import os
 
 class Deputy(models.Model):
     rada_id = models.IntegerField()
-    name = models.CharField(max_length=200) # "Порошенко Петро "
+    name = models.CharField(max_length=200)
     submitted_laws = models.IntegerField()
     photo = models.CharField(max_length=200)
     monitoring = models.IntegerField()
@@ -45,7 +45,7 @@ class Deputy(models.Model):
         return self.last_month_position - self.position_current
 
     def position_change_snippet(self):
-        difference =  self.last_month_position - self.position_current
+        difference =  self.position_change
         if difference > 0:
             return f'<span class="difference positive">(+{difference})<i class="fas fa-long-arrow-alt-up"></i></span>'
         elif difference < 0:
