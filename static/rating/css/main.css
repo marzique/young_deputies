@@ -44,13 +44,12 @@ body, html{
     align-items: center;
     background: #FFFFFF;
     height: 70px;
-    margin: 60px 0;
+    margin: 45px 0;
     position: relative;
     padding: 0 0 0 20px;
-}
-
-.deputy.top3{
-    margin: 85px 0;
+    -webkit-box-shadow: 10px 10px 36px -19px rgba(107,107,107,1);
+-moz-box-shadow: 10px 10px 36px -19px rgba(107,107,107,1);
+box-shadow: 10px 10px 36px -19px rgba(107,107,107,1);
 }
 
 .deputy h2{
