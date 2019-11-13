@@ -7,20 +7,32 @@ from .models import Deputy, UniqueUser
 
 
 def refresh_deputies_laws_number():
-    """Refresh each deputy's submitted laws"""
-    deputies = Deputy.objects.all()
-    for deputy in deputies:
-        deputy.submitted_laws = laws_by_deputy(deputy.rada_id)
+    """Update each deputy's submitted laws"""
+
+    deputies_dict = deputies_law_number()
+    sorted_dict = sorted(deputies_dict.items(), key=lambda x: x[1], reverse=True)
+    for idx, val in enumerate(sorted_dict): 
+        pk = val[0]
+        deputy = Deputy.objects.filter(pk=pk).first()
+        deputy.submitted_laws = idx + 1
         deputy.save()
 
 
-def refresh_deputies_google_search_number():
-    """Refresh each deputy's google search number"""
+def deputies_law_number():
+    deputies = Deputy.objects.all()
+    places = {}
+    for deputy in deputies:
+        laws = laws_by_deputy(deputy.rada_id)
+        places[deputy.pk] = laws
+    return places
 
-    dic = deputies_mean_searches()
-    sorted_dic = sorted(dic.items(), key=lambda x: x[1], reverse=True)
-    total_dic = {}
-    for idx, val in enumerate(sorted_dic): 
+
+def refresh_deputies_google_search_number():
+    """Scale deputies google searches from 1 to MAX and update"""
+
+    deputies_mean_searches = deputies_mean_searches()
+    sorted_dict = sorted(deputies_mean_searches.items(), key=lambda x: x[1], reverse=True)
+    for idx, val in enumerate(sorted_dict): 
         pk = val[0]
         deputy = Deputy.objects.filter(pk=pk).first()
         deputy.monitoring = idx + 1
@@ -28,6 +40,7 @@ def refresh_deputies_google_search_number():
     
 
 def deputies_mean_searches():
+    """Return dict - {deputy_pk: mean_num_of_searches, }"""
     deputies = Deputy.objects.all()
     places = {}
     for deputy in deputies:
@@ -36,9 +49,6 @@ def deputies_mean_searches():
         mean = int((rus + ukr) / 2)
         places[deputy.pk] = mean
     return places
-
-
-    
 
 
 def user_ip(request):
