@@ -69,6 +69,9 @@ class Deputy(models.Model):
     def votes(self):
         return self.uniqueuser_set.count()
 
+    def total(self):
+        return self.upr + self.monitoring + self.submitted_laws + self.experts
+
 
 class UniqueUser(models.Model):
     ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=True)
