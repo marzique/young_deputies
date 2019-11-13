@@ -7,13 +7,13 @@ class Deputy(models.Model):
     rada_id = models.IntegerField()
     name = models.CharField(max_length=200)
     name_ukr = models.CharField(max_length=200)
+    upr = models.IntegerField() # UPR
+    experts = models.IntegerField()
+    monitoring = models.IntegerField() # SMI
     submitted_laws = models.IntegerField()
     photo = models.CharField(max_length=200)
-    monitoring = models.IntegerField()
-    attendance = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)]) 
     last_month_position = models.IntegerField()
     position_current = models.IntegerField()
-    rating_upfoundation = models.IntegerField()
     txt_for_page = models.TextField(max_length=2500)
 
     SLUGA_NARODU = 'SN'
@@ -65,10 +65,6 @@ class Deputy(models.Model):
     def surname_ukr(self):
         splitted = self.name_ukr.split(' ')
         return splitted[0]
-
-    def attendance_to_degrees(self):
-        """Scale 100% percentage to 180 degrees"""
-        return self.attendance * 1.8
 
     def votes(self):
         return self.uniqueuser_set.count()
