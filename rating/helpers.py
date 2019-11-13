@@ -16,14 +16,29 @@ def refresh_deputies_laws_number():
 
 def refresh_deputies_google_search_number():
     """Refresh each deputy's google search number"""
+
+    dic = deputies_mean_searches()
+    sorted_dic = sorted(dic.items(), key=lambda x: x[1], reverse=True)
+    total_dic = {}
+    for idx, val in enumerate(sorted_dic): 
+        pk = val[0]
+        deputy = Deputy.objects.filter(pk=pk).first()
+        deputy.monitoring = idx + 1
+        deputy.save()
+    
+
+def deputies_mean_searches():
     deputies = Deputy.objects.all()
+    places = {}
     for deputy in deputies:
         rus = int(total_search_results(deputy.surname()))
         ukr = int(total_search_results(deputy.surname_ukr()))
         mean = int((rus + ukr) / 2)
-        print(f'rus: {rus}, ukr: {ukr}, mean: {mean}')
-        deputy.monitoring = mean
-        deputy.save()
+        places[deputy.pk] = mean
+    return places
+
+
+    
 
 
 def user_ip(request):
