@@ -13,24 +13,22 @@
             {{ deputy.position_change_snippet|safe }}
             <div class="main-info">
                 <img class="avatar" src="{% get_static_prefix %}rating/img/deputies/{{ deputy.photo }}" alt="">
-                <h2>{{ deputy.name_surname }}</h2>
-                <p class="party">{{ deputy.get_party_display }}</p>
+                <div class="throw">
+                    <h2>{{ deputy.name_surname }}</h2>
+                    <p class="party">{{ deputy.get_party_display }}</p>
+                </div>
                 <a href="#" class="vote {% if deputy.pk in voted %}voted{% endif %}" data-pk="{{ deputy.pk }}">
                     <i class="fas fa-thumbs-up"></i>
                     <span>{{ deputy.votes }}</span>
                 </a>
             </div>
             <div class="table">
-                <p class="laws">{{ deputy.submitted_laws }}</p>
-                <p class="smi">{{ deputy.monitoring }}</p>
                 <p class="upr">{{ deputy.upr }}</p>
-                <p class="attendance">
-                    {{ deputy.attendance }}%
-                </p>
-                <div class="attendance-wrapper">
-                    <img class="circle" src="{% static 'rating/img/circle.svg' %}">
-                    <img class="semicircle" src="{% static 'rating/img/semicircle.svg' %}" style="transform: rotate({{deputy.attendance_to_degrees}}deg)">
-                </div>
+                <p class="smi">{{ deputy.monitoring }}</p>
+                <p class="experts">{{ deputy.experts }}</p>
+                <p class="laws">{{ deputy.submitted_laws }}</p>
+                <p class="total">{{ deputy.total }}999</p>
+
             </div>
         </div>
         {% endfor %}
