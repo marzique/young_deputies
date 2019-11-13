@@ -30,8 +30,8 @@ def deputies_law_number():
 def refresh_deputies_google_search_number():
     """Scale deputies google searches from 1 to MAX and update"""
 
-    deputies_mean_searches = deputies_mean_searches()
-    sorted_dict = sorted(deputies_mean_searches.items(), key=lambda x: x[1])
+    deputies_dict = deputies_mean_searches()
+    sorted_dict = sorted(deputies_dict.items(), key=lambda x: x[1])
     for idx, val in enumerate(sorted_dict): 
         pk = val[0]
         deputy = Deputy.objects.filter(pk=pk).first()
