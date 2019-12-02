@@ -120,7 +120,7 @@ def handle_vote(request):
 def export_csv():
     """"""
     deputies = Deputy.objects.all()
-    with open('employee_file.csv', mode='w', encoding='utf-8-sig') as employee_file:
+    with open('deputies.csv', mode='w', encoding='utf-8-sig') as employee_file:
         employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
         rows = []
@@ -136,7 +136,7 @@ def export_csv():
 
         sorted_rows = sorted(rows, key = lambda x: int(x[-1]), reverse=True)
 
-        employee_writer.writerow(['Позиция', 'Имя', 'UPR', 'СМИ', 'ЭКС', 'ЗД', 'Общий'])
+        employee_writer.writerow( ['Позиция', 'Имя', 'UPR', 'СМИ', 'ЭКС', 'ЗД', 'Общий'] )
         for row in sorted_rows:
             employee_writer.writerow(row)
 
