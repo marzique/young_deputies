@@ -161,7 +161,7 @@ box-shadow: 10px 10px 36px -19px rgba(107,107,107,1);
     font-size: 24px;
 }
 
-.laws, .smi, .upr, .experts, .total{
+.laws, .laws a, .smi, .upr, .experts, .total{
     font-family: Roboto Slab;
     font-weight: bold;
     font-size: 16px;
@@ -358,11 +358,11 @@ box-shadow: 10px 10px 36px -19px rgba(107,107,107,1);
     }
 
     .deputy:first-child .laws::after {
-        left: -68px;
+        left: 32px;
     }
 
     .deputy:first-child .smi::after {
-        left: 45px;
+        left: 27px;
     }
 }
 
