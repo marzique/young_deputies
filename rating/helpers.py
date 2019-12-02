@@ -4,6 +4,7 @@ from ipware import get_client_ip
 from .rada.scraper import laws_by_deputy
 from .googler.scraper import total_search_results
 from .models import Deputy, UniqueUser
+import csv
 
 
 def refresh_deputies_laws_number():
@@ -114,3 +115,28 @@ def handle_vote(request):
         'amount': deputy.votes()
     }
     return JsonResponse(response)
+
+
+def export_csv():
+    """"""
+    deputies = Deputy.objects.all()
+    with open('employee_file.csv', mode='w', encoding='utf-8-sig') as employee_file:
+        employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+        rows = []
+        for deputy in deputies:
+            place = deputy.position_current
+            name = deputy.name
+            upr = deputy.upr
+            smi = deputy.monitoring
+            experts = deputy.experts
+            laws = deputy.submitted_laws
+            total = deputy.total()
+            rows.append([place, name, upr, smi, experts, laws, total])
+
+        sorted_rows = sorted(rows, key = lambda x: int(x[-1]), reverse=True)
+
+        employee_writer.writerow(['Позиция', 'Имя', 'UPR', 'СМИ', 'ЭКС', 'ЗД', 'Общий'])
+        for row in sorted_rows:
+            employee_writer.writerow(row)
+
