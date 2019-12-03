@@ -140,3 +140,20 @@ def export_csv():
         for row in sorted_rows:
             employee_writer.writerow(row)
 
+
+def sort_deputies():
+    """Change deputies places by total points, 
+    save current_positions as last_month_position
+    """
+    deputies = Deputy.objects.all()
+    places = {deputy.pk: deputy.total() for deputy in deputies}
+
+    sorted_dict = sorted(places.items(), key=lambda x: x[1], reverse=True)
+    for idx, val in enumerate(sorted_dict): 
+        pk = val[0]
+        deputy = Deputy.objects.filter(pk=pk).first()
+        deputy.last_month_position = deputy.position_current
+        deputy.position_current = idx + 1
+        deputy.save()
+
+
