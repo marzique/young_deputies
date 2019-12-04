@@ -15,10 +15,13 @@ body, html{
     background-position: 50%;
     background-size: contain;
     height: 200px;
-    margin-bottom: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.description{
+    margin: 30px 0 90px;
 }
 
 .full-width {
@@ -251,6 +254,9 @@ box-shadow: 10px 10px 36px -19px rgba(107,107,107,1);
     transform: rotate(0) !important;
 }
 
+.abbreviations p span{
+    color: #3949AB;
+}
 
 
 @media (max-width: 1140px) and (min-width: 1019px){
