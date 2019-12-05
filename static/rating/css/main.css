@@ -529,7 +529,7 @@ box-shadow: 10px 10px 36px -19px rgba(107,107,107,1);
 
     .vote {
         position: absolute;
-        left: 70px;
+        left: 80px;
         top: 10px;
         font-size: 12px;
     }
@@ -583,7 +583,7 @@ box-shadow: 10px 10px 36px -19px rgba(107,107,107,1);
     .difference {
         font-size: 12px;
         margin-left: 6px;
-        margin-right: 10px;
+        margin-right: 0;
         top: 4px;
         width: 30px;
         display: flex;
