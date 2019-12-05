@@ -617,7 +617,7 @@ box-shadow: 10px 10px 36px -19px rgba(107,107,107,1);
         top: -45px;
     }
 
-    .laws, .smi, .upr, .attendance, .experts, .total {
+    .laws a, .smi, .upr, .attendance, .experts, .total {
         font-size: 10px;
     }
 
