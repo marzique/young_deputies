@@ -4,6 +4,7 @@ from ipware import get_client_ip
 from .rada.scraper import laws_by_deputy
 from .googler.scraper import total_search_results
 from .models import Deputy, UniqueUser
+from datetime import datetime
 import csv
 
 
@@ -120,7 +121,8 @@ def handle_vote(request):
 def export_csv():
     """"""
     deputies = Deputy.objects.all()
-    with open('deputies.csv', mode='w', encoding='utf-8-sig') as employee_file:
+    fname = f'deputies_{str(datetime.now())[:10]}.csv'
+    with open(fname, mode='w', encoding='utf-8-sig') as employee_file:
         employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
         rows = []
