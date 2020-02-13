@@ -159,3 +159,30 @@ def sort_deputies():
         deputy.save()
 
 
+def normalize_deputies_fields():
+    attributes = ['upr', 'experts', 'monitoring', 'submitted_laws']
+    deputies = Deputy.objects.all()
+    top = len(deputies)
+
+    columns = {}
+
+    for attribute in attributes:
+        columns[attribute] = [int(elem) for elem in list(deputies.values_list(attribute, flat=True))]
+
+    
+    columns = {k: normalize_list(v, top) for k, v in columns.items()}
+
+    for i, deputy in enumerate(deputies):
+        for attribute in attributes:
+            setattr(deputy, attribute, columns[attribute][i])
+            deputy.save()
+
+
+
+def normalize_list(list_, top):
+    new_list = []
+    maximum = max(list_)
+    for item in list_:
+        n = (item * top) / maximum
+        new_list.append(int(n))
+    return new_list
